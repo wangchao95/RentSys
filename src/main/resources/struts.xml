@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!--可以使用动态方法调用-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+
+    <!--时间异常提示消息-->
+    <constant name="struts.custom.i18n.resources" value="message"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <!--默认访问的页面-->
+        <!--<action name="login">-->
+            <!--<result name="success">login.jsp</result>-->
+        <!--</action>-->
+
+
+        <interceptors>
+            <!--定义一个权限控制拦截器，在通过过滤器寻找到要进那个action的方法之前，要进此拦截器进行验证-->
+            <interceptor name="myAhthorControl" class="com.rent.unil.Interceptor"></interceptor>
+
+            <!--定义一个拦截器栈，存放多个拦截器-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="myAhthorControl"/>
+                <!--引用默认的拦截器-->
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--一般很少这样用，因为登录的时候session会话里面还咩有user，所以必须放开登录的action-->
+        <!--引用默认的拦截器，每个请求都会经过这里类判断-->
+        <!--<default-interceptor-ref name="myStack"/>-->
+
+
+        <!--引用默认的action，在用户输入错误的请求之后，找不到action的请求，就会执行默认的action-->
+        <default-action-ref name="defaultAction"/>
+
+        <!--&lt;!&ndash;定义全局结果，如果action中没有匹配到result的name值，就会执行这个默认的全局结果&ndash;&gt;（如果发现的没有登录的非法通过地址访问的就会默认进此页面）-->
+        <global-results>
+            <result name="login" type="redirect">login.jsp</result>
+        </global-results>
+
+        <action name="defaultAction">
+            <result>login.jsp</result>
+        </action>
+
+
+        <!--&lt;!&ndash;<result name="success" type="redirectAction">house</result>&ndash;&gt;可以替换成-->
+        <!--<result name="success" type="redirectAction">-->
+        <!--&lt;!&ndash;要跳转的action名称&ndash;&gt;-->
+        <!--<param name="actionName">house</param>-->
+        <!--&lt;!&ndash;传递的参数,userID是在登录时获取的user对象下的id&ndash;&gt;-->
+        <!--<param name="userid">${user.id }</param>        -->
+        <!--&lt;!&ndash;调用的action下的方法&ndash;&gt;-->
+        <!--<param name="method">getHouseList</param>-->
+        <!--</result>-->
+
+
+        <action name="*User" class="com.rent.action.LoginAction" method="{1}">
+            <result name="success" type="redirectAction">house</result>
+            <result name="input">/{1}.jsp</result>
+            <result name="fail">/{1}.jsp</result>
+            <result name="successOut">/login.jsp</result>
+
+            <!--//设置action那边的sacePath的值-->
+            <param name="savePath">/upload</param>
+            <result name="rigistSuccess">/WEB-INF/page/success.jsp</result>
+            <!--如果不配置全局默认的拦截器，就要在每个action中，手动配置，登录的可以不用拦截-->
+            <!--<interceptor-ref name="myStack"/>-->
+
+            <!--这样设置了，如果设置了全局拦截器，此action奖不被拦截-->
+            <!--<interceptor-ref name="defaultStack"/>-->
+        </action>
+
+        <action name="register" class="com.rent.action.LoginAction" method="toRegist">
+            <result name="rigist">/register.jsp</result>
+        </action>
+
+        <action name="house" class="com.rent.action.HouseAction" method="getHouseByUser">
+            <result name="success">/WEB-INF/page/manage.jsp</result>
+            <!--引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+        <action name="userInfo" class="com.rent.action.LoginAction" method="getUserList">
+            <result name="userList">/userInfo.jsp</result>
+            <!--引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+        <action name="*House" class="com.rent.action.HouseAction" method="{1}">
+            <result name="success">/WEB-INF/page/add.jsp</result>
+            <result name="addSuccess">/WEB-INF/page/success2.jsp</result>
+            <result name="fail">/WEB-INF/page/add.jsp</result>
+            <result name="input">/WEB-INF/page/add.jsp</result>
+            <result name="removeSuccess" type="redirectAction">house</result>
+            <result name="toListSuccess">/WEB-INF/page/house_list.jsp</result>
+            <result name="successShow">/WEB-INF/page/show.jsp</result>
+            <!--引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+    </package>
+
+
+    <package name="json" namespace="/"  extends="json-default">
+
+        <interceptors>
+            <!--定义一个权限控制拦截器，在通过过滤器寻找到要进那个action的方法之前，要进此拦截器进行验证-->
+            <interceptor name="myAhthorControl" class="com.rent.unil.Interceptor"></interceptor>
+
+            <!--定义一个拦截器栈，存放多个拦截器-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="myAhthorControl"/>
+                <!--引用默认的拦截器-->
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--&lt;!&ndash;定义全局结果，如果action中没有匹配到result的name值，就会执行这个默认的全局结果&ndash;&gt;（如果发现的没有登录的非法通过地址访问的就会默认进此页面）-->
+        <global-results>
+            <result name="login" type="redirect">login.jsp</result>
+        </global-results>
+
+
+
+        <action name="typeList" class="com.rent.action.TypeAction" method="getList">
+            <result  type="json">
+                <param name="root">result</param>
+            </result>
+            <!--引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+        <action name="disList" class="com.rent.action.DistrictAction" method="disList">
+            <result  type="json">
+                <param name="root">result</param>
+            </result>
+            <!--!&#45;&#45;引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，&ndash;&gt;-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+        <action name="strList" class="com.rent.action.StreetAction" method="strList">
+            <result  type="json">
+                <param name="root">result</param>
+            </result>
+            <!--!&#45;&#45;引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，&ndash;&gt;-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+        <action name="pageHouse" class="com.rent.action.HouseAction" method="pageHouse">
+            <result  type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="input">/WEB-INF/page/house_list.jsp</result>
+            <!--&lt;!&ndash;!&#45;&#45;引用拦截器，目的是为了防止未登录，直接通过地址栏访问页面，&ndash;&gt;&ndash;&gt;-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+    </package>
+
+</struts>

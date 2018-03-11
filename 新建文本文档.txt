@@ -1,0 +1,25 @@
+insert into STREET values (seq_street_name.Nextval,'福田街道','12');
+insert into STREET values (seq_street_name.Nextval,'上沙街道','13');
+insert into STREET values (seq_street_name.Nextval,'龙华街道','14');
+
+insert into STREET values (seq_street_name.Nextval,'福田街道','1');
+insert into STREET values (seq_street_name.Nextval,'上沙街道','2');
+insert into STREET values (seq_street_name.Nextval,'龙华街道','3');
+insert into STREET values (seq_street_name.Nextval,'清华街道','4');
+
+insert into DISTRICT values (1,'福田区县');
+insert into DISTRICT values (2,'上沙区县');
+insert into DISTRICT values (3,'龙华区县');
+insert into DISTRICT values (4,'清华区县');
+
+
+insert into USERS values (user_seq1_id.Nextval,'鹏三','1234','13554845108','四','否');
+insert into USERS values (user_seq1_id.Nextval,'bdqn','1235','13553845127','五','是');
+insert into USERS values (user_seq1_id.Nextval,'bdn','1235','13553855127','三','是');
+
+insert into HOUSE values (house_seq1_id.Nextval,'中关村','呜呜呜',15,to_date('2015-10-5','yyyy-mm-dd'),'20','张三',1,2,3);
+insert into HOUSE values (house_seq1_id.Nextval,'张关村','饿呜呜',10,to_date('2015-12-6','yyyy-mm-dd'),'96','张四',2,3,4);
+insert into HOUSE values (house_seq1_id.Nextval,'中关村','饿呜呜',10,to_date('2018-2-6','yyyy-mm-dd'),'100','李阳',2,3,4);
+insert into HOUSE values (house_seq1_id.Nextval,'大关村','擦呜呜',19,to_date('2018-2-7','yyyy-mm-dd'),'150','张阳',3,5,8);
+insert into HOUSE values (house_seq1_id.Nextval,'龙关村','哈呜呜',4000,to_date('2018-1-7','yyyy-mm-dd'),'15','张阳',5,7,6);
+insert into HOUSE values (house_seq1_id.Nextval,'一室一厅','龙呜呜',1000,to_date('2008-1-7','yyyy-mm-dd'),'16','张阳',4,4,9);

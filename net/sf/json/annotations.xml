@@ -1,0 +1,5 @@
+<root>
+    <item name='net.sf.json.JsonConfig'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

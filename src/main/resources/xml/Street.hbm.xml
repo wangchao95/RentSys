@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.rent.entity.Street" table="street">
+        <id name="id" column="id" type="int">
+            <generator class="sequence">
+                <param name="sequence">street_seql_id</param>
+            </generator>
+        </id>
+        <property name="name" column="name" type="java.lang.String"/>
+        <many-to-one name="district" column="district_id" class="com.rent.entity.District" lazy="false"/>
+        <!--<set name="houseSet" lazy="true">-->
+            <!--<key column="street_id"/>-->
+            <!--<one-to-many class="com.rent.entity.House"/>-->
+        <!--</set>-->
+    </class>
+</hibernate-mapping>

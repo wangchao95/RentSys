@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.rent.entity.Type" table="type">
+        <id name="id" type="int" column="id">
+            <generator class="sequence">
+                <param name="sequence">type_seql_id</param>
+            </generator>
+        </id>
+        <property name="name" column="name"/>
+
+        <!--<set name="houseSet" lazy="false">-->
+            <!--<key column="type_id"></key>-->
+            <!--<one-to-many class="com.rent.entity.House"/>-->
+        <!--</set>-->
+    </class>
+
+</hibernate-mapping>
