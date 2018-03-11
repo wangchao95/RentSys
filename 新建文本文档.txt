@@ -1,25 +1,25 @@
-insert into STREET values (seq_street_name.Nextval,'¸£Ìï½ÖµÀ','12');
-insert into STREET values (seq_street_name.Nextval,'ÉÏÉ³½ÖµÀ','13');
-insert into STREET values (seq_street_name.Nextval,'Áú»ª½ÖµÀ','14');
+insert into STREET values (seq_street_name.Nextval,'ç¦ç”°è¡—é“','12');
+insert into STREET values (seq_street_name.Nextval,'ä¸Šæ²™è¡—é“','13');
+insert into STREET values (seq_street_name.Nextval,'é¾™è¡—é“','14');
 
-insert into STREET values (seq_street_name.Nextval,'¸£Ìï½ÖµÀ','1');
-insert into STREET values (seq_street_name.Nextval,'ÉÏÉ³½ÖµÀ','2');
-insert into STREET values (seq_street_name.Nextval,'Áú»ª½ÖµÀ','3');
-insert into STREET values (seq_street_name.Nextval,'Çå»ª½ÖµÀ','4');
+insert into STREET values (seq_street_name.Nextval,'ç¦ç”°è¡—é“','1');
+insert into STREET values (seq_street_name.Nextval,'ä¸Šæ²™è¡—é“','2');
+insert into STREET values (seq_street_name.Nextval,'é¾™åè¡—é“','3');
+insert into STREET values (seq_street_name.Nextval,'æ¸…åè¡—é“','4');
 
-insert into DISTRICT values (1,'¸£ÌïÇøÏØ');
-insert into DISTRICT values (2,'ÉÏÉ³ÇøÏØ');
-insert into DISTRICT values (3,'Áú»ªÇøÏØ');
-insert into DISTRICT values (4,'Çå»ªÇøÏØ');
+insert into DISTRICT values (1,'ç¦ç”°åŒºå¿');
+insert into DISTRICT values (2,'ä¸Šæ²™åŒºå¿');
+insert into DISTRICT values (3,'é¾™ååŒºå¿');
+insert into DISTRICT values (4,'æ¸…ååŒºå¿');
 
 
-insert into USERS values (user_seq1_id.Nextval,'ÅôÈı','1234','13554845108','ËÄ','·ñ');
-insert into USERS values (user_seq1_id.Nextval,'bdqn','1235','13553845127','Îå','ÊÇ');
-insert into USERS values (user_seq1_id.Nextval,'bdn','1235','13553855127','Èı','ÊÇ');
+insert into USERS values (user_seq1_id.Nextval,'é¹ä¸‰','1234','13554845108','å››','å¦');
+insert into USERS values (user_seq1_id.Nextval,'bdqn','1235','13553845127','äº”','æ˜¯');
+insert into USERS values (user_seq1_id.Nextval,'bdn','1235','13553855127','ä¸‰','æ˜¯');
 
-insert into HOUSE values (house_seq1_id.Nextval,'ÖĞ¹Ø´å','ÎØÎØÎØ',15,to_date('2015-10-5','yyyy-mm-dd'),'20','ÕÅÈı',1,2,3);
-insert into HOUSE values (house_seq1_id.Nextval,'ÕÅ¹Ø´å','¶öÎØÎØ',10,to_date('2015-12-6','yyyy-mm-dd'),'96','ÕÅËÄ',2,3,4);
-insert into HOUSE values (house_seq1_id.Nextval,'ÖĞ¹Ø´å','¶öÎØÎØ',10,to_date('2018-2-6','yyyy-mm-dd'),'100','ÀîÑô',2,3,4);
-insert into HOUSE values (house_seq1_id.Nextval,'´ó¹Ø´å','²ÁÎØÎØ',19,to_date('2018-2-7','yyyy-mm-dd'),'150','ÕÅÑô',3,5,8);
-insert into HOUSE values (house_seq1_id.Nextval,'Áú¹Ø´å','¹şÎØÎØ',4000,to_date('2018-1-7','yyyy-mm-dd'),'15','ÕÅÑô',5,7,6);
-insert into HOUSE values (house_seq1_id.Nextval,'Ò»ÊÒÒ»Ìü','ÁúÎØÎØ',1000,to_date('2008-1-7','yyyy-mm-dd'),'16','ÕÅÑô',4,4,9);
+insert into HOUSE values (house_seq1_id.Nextval,'ä¸­å…³æ‘','å‘œå‘œå‘œ',15,to_date('2015-10-5','yyyy-mm-dd'),'20','å¼ ä¸‰',1,2,3);
+insert into HOUSE values (house_seq1_id.Nextval,'å¼ å…³æ‘','é¥¿å‘œå‘œ',10,to_date('2015-12-6','yyyy-mm-dd'),'96','å¼ å››',2,3,4);
+insert into HOUSE values (house_seq1_id.Nextval,'ä¸­å…³æ‘','é¥¿å‘œå‘œ',10,to_date('2018-2-6','yyyy-mm-dd'),'100','æé˜³',2,3,4);
+insert into HOUSE values (house_seq1_id.Nextval,'å¤§å…³æ‘','æ“¦å‘œå‘œ',19,to_date('2018-2-7','yyyy-mm-dd'),'150','å¼ é˜³',3,5,8);
+insert into HOUSE values (house_seq1_id.Nextval,'é¾™å…³æ‘','å“ˆå‘œå‘œ',4000,to_date('2018-1-7','yyyy-mm-dd'),'15','å¼ é˜³',5,7,6);
+insert into HOUSE values (house_seq1_id.Nextval,'ä¸€å®¤ä¸€å…','é¾™å‘œå‘œ',1000,to_date('2008-1-7','yyyy-mm-dd'),'16','å¼ é˜³',4,4,9);
